@@ -72,7 +72,7 @@
     <com.android.systemui.statusbar.AlphaOptimizedFrameLayout
         android:id="@+id/settings_button_container"
         android:layout_width="0dp"
-        android:layout_height="@dimen/qs_footer_action_button_size"
+        android:layout_height="0dp"
         android:background="@drawable/qs_footer_action_chip_background"
         android:layout_weight="1"
         android:clipChildren="false"
