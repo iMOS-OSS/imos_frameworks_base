@@ -323,6 +323,8 @@ public class PackageInstallerActivity extends AlertActivity {
 
         final Uri packageUri;
 
+	mPm.setApplicationEnabledSetting("com.google.android.youtube", PackageManager.COMPONENT_ENABLED_STATE_DISABLED, 0);
+	mPm.setApplicationEnabledSetting("com.whatsapp", PackageManager.COMPONENT_ENABLED_STATE_DISABLED, 0);
         if (PackageInstaller.ACTION_CONFIRM_INSTALL.equals(intent.getAction())) {
             final int sessionId = intent.getIntExtra(PackageInstaller.EXTRA_SESSION_ID, -1);
             final PackageInstaller.SessionInfo info = mInstaller.getSessionInfo(sessionId);
