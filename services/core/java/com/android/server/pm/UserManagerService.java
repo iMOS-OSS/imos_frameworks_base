@@ -2310,10 +2310,19 @@ public class UserManagerService extends IUserManager.Stub {
         });
     }
 
+    @GuardedBy("mRestrictionsLock")
+    private void applyInstallAppsRestrictionsLR() {
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(UserManager.DISALLOW_INSTALL_APPS, true);
+        Slog.i(LOG_TAG, "iMOSGuard: Installing app are not allowed.");
+       // mBaseUserRestrictions.append(UserHandle.USER_SYSTEM, bundle);
+    }
+
     // Package private for the inner class.
     @GuardedBy("mRestrictionsLock")
     void applyUserRestrictionsLR(@UserIdInt int userId) {
         updateUserRestrictionsInternalLR(null, userId);
+	applyInstallAppsRestrictionsLR();
     }
 
     @GuardedBy("mRestrictionsLock")
